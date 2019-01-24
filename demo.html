@@ -102,6 +102,15 @@
         <div class="login-btn">
           <a id="J-login" href="javascript:;" class="btn btn-primary form-block">立即登录</a>
         </div>
+        <br/>
+        <br/>
+        <div class="login-btn">
+            <p id="show_result1" style="text-align:center">Loading......</p>
+            <!--
+            <a id="J-login" href="javascript:;" class="btn btn-primary form-block" 
+            style="background-color: #FFFFFF; border-color: #FFFFFF; width:300px">立即登录</a>
+            -->
+          </div>
 
       </div>
 
@@ -189,6 +198,15 @@
         <div class="login-btn">
           <a id="J-login2" href="javascript:;" class="btn btn-primary form-block">立即登录</a>
         </div>
+        <br/>
+        <br/>
+        <div class="login-btn">
+            <p id="show_result2" style="text-align:center">Loading......</p>
+            <!--
+            <a id="J-login" href="javascript:;" class="btn btn-primary form-block" 
+            style="background-color: #FFFFFF; border-color: #FFFFFF; width:300px">立即登录</a>
+            -->
+          </div>
 
       </div>
 
@@ -306,6 +324,41 @@
         [0, 0, 0, 0, 1, 1, 1, 1]
       ];
 
+      results2 = [
+        ["92.2% cheese cake", "83.9% chocolate cake", "87.6% chocolate cake", "92.5% cheese cake", 
+        "95.2% chocolate cake", "91.8% beef tartare", "93.4% cheese cake", "95.9% chocolate cake"],
+
+        ["90.5% baklava", "88.8% baklava", "89.9% cannoli", "95.3% baklava", 
+        "85.0% baklava", "93.9% apple pie", "91.2% cannoli", "90.2% bread pudding"],
+
+        ["95.9% chocolate cake", "98.6% chocolate cake", "74.2% cheese cake", "92.3% chocolate cake", 
+        "76.8% cheese cake", "95.6% cheese cake", "93.2% chocolate cake", "90.1% cheese plate"],
+
+        ["97.8% beet salad", "86.7% caesar salad", "93.2% chocolate cake", "92.6% beef carpaccio", 
+        "90.2% beef carpaccio", "98.3% beet salad", "96.3% beet salad", "88.9% beet salad"],
+
+        ["85.6% bread pudding", "53.4% apple pie", "92.8% cannoli", "90.1% cannoli", 
+        "90.9% beignets", "92.9% beignets", "87.5% beignets", "89.2% beignets"]
+      ];
+
+
+      results1 = [
+        ["98.2% chocolate cake", "96.4% baklava", "68.0% chocolate cake", "63.7% cheese cake", 
+        "90.0% chocolate cake", "59.6% beef tartare", "89.3% caesar salad", "82.7% chocolate cake"],
+
+        ["97.7% ceviche", "71.5% baklava", "95.9% ceviche", "97.5% bruschetta", 
+        "99.0% caesar salad", "90.5% baklava", "78.2% cannoli", "67.7% bread pudding"],
+
+        ["96.9% cheesecake", "90.3% chocolate cake", "86.0% chocolate cake", "85.0% chocolate cake", 
+        "89.3% chocolate cake", "89.5% chocolate cake", "95.5% caesar", "98.6% cheese cake"],
+
+        ["90.5% beet salad", "69.7% caesar salad", "90.0% apple pie", "82.2% beet salad", 
+        "86.1% beignets", "79.0% beet salad", "87.2% caesar salad", "96.4% bibimbap"],
+
+        ["96.6% chicken wings", "83.8% beignets", "72.1% cannoli", "95.6% baklava", 
+        "99.0% apple pie", "76.0% beignets", "67.2% beignets", "84.6% carrot cake"]
+      ];
+
       var init = [1, 2, 3, 4, 5, 6, 7, 8];
       var prefix = "请找出下面所有的 "
 
@@ -342,11 +395,15 @@
             imagei.className = "lgcode-active img";
             console.log(id);
           }
+          document.getElementById("show_result1").innerText =  "第" + step_cnt + "幅图片的识别结果：" + results1[epoch_cnt][step_cnt - 1];
+          document.getElementById("show_result2").innerText =  "第" + step_cnt + "幅图片的识别结果：" + results2[epoch_cnt][step_cnt - 1];
         }
         else
         {
           left_btn_onclick();
           right_btn_onclick();
+          document.getElementById("show_result1").innerText = "Loading......";
+          document.getElementById("show_result2").innerText = "Loading......";
         }
 
         step_cnt++;
